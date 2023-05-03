@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">>
+<head>
+    <meta http-equiv="content-type" content="text/html"; charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<nav>
+    <a href="http://localhost:9090/fruits">Tous les fruits</a>
+    <a href="http://localhost:9090/createFruits">Créer des fruits plz</a>
+
+</nav>
+<h1>Fruits</h1>
+
+<ul>
+    <li th:each="fruit: ${fruits}">
+
+    <a th:href="@{/fruit/{id}(id=${fruit.id})}"><span th:text="${fruit.name}" /></a>
+    </li>
+</ul>
+</body>
+</html>
