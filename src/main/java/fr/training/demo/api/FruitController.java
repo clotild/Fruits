@@ -9,8 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 
 @Controller
 //@RequestMapping("/fruits")
@@ -21,21 +19,32 @@ public class FruitController {
     @Autowired
     private FruitService fruitService;
 
+    //-------------Afficher la liste des fruits--------------------------------
     @GetMapping("/fruits")
 // on peut remplacer getmapping par requestmapping (method = requestmethod.get)
-    public String fruits (Model model) {
-       model.addAttribute("fruits", fruitService.fetchAll());
-       return "fruits";
+    public String fruits(Model model) {
+        model.addAttribute("fruits", fruitService.fetchAll());
+        return "fruits";
     }
-    @GetMapping ("/createFruits")
-    public String createFruit (Model model) {
+
+    // -------------Créer/Ajouter un fruit ----------------------------------
+    @GetMapping("/createFruits")
+    public String createFruit(Model model) {
         model.addAttribute("fruit", new Fruit());
         return "create";
     }
+
     @PostMapping("/createFruit")
-    public String createFruitSubmit (@ModelAttribute Fruit fruit, Model model) {
+    public String createFruitSubmit(@ModelAttribute Fruit fruit, Model model) {
         fruitService.create(fruit);
         return "redirect:/fruits";
+    }
+
+    //------------------Afficher les détails d'un fruit----------------------------
+    @GetMapping("/fruits/{id}")
+    public String detailFruit(@PathVariable int id, Model model) {
+        model.addAttribute("fruit", fruitService.fetchById(id));
+        return "detailFruit";
     }
 
 //    @GetMapping("/{id}")

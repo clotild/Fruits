@@ -15,7 +15,7 @@
 <ul>
     <li th:each="fruit: ${fruits}">
 
-    <a th:href="@{/fruit/{id}(id=${fruit.id})}"><span th:text="${fruit.name}" /></a>
+    <a th:href="@{/fruits/{id}(id=${fruit.id})}"><span th:text="${fruit.name}" /></a>
     </li>
 </ul>
 </body>

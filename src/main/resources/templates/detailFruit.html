@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Fruit detail</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-
+<h1>Détail du fruit </h1>
+<span> id:</span><span th:text="${fruit.id}"/>
+<span> name: </span><span th:text="${fruit.name}"/>
 </body>
 </html>
+
