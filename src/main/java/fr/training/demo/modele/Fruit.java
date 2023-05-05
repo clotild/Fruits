@@ -25,6 +25,10 @@ public class Fruit {
     public Fruit () {
 
     }
+    public Fruit (String name ) {
+        this.name = name;
+
+    }
 
     public int getId() {
         return id;
